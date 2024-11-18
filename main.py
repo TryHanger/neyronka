@@ -21,7 +21,11 @@ else:
 # Check if CUDA is available and use it
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = TestNet().to(device)
-
+# Example of a simple mathematical operation
+a = torch.tensor([2.0], device=device)
+b = torch.tensor([3.0], device=device)
+c = a + b
+print(f"The result of adding {a.item()} and {b.item()} is {c.item()}")
 # Example input tensor
 input_tensor = torch.randn(1, 10).to(device)
 output = model(input_tensor)
