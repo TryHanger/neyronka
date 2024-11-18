@@ -6,7 +6,13 @@ class TestNet(nn.Module):
         super(TestNet, self).__init__()
         self.fc1 = nn.Linear(10, 50)
         self.fc2 = nn.Linear(50, 1)
-
+porno = 12
+sex = 13
+if porno > sex:
+    print("penis")
+else:
+    print("Loh")
+    
     def forward(self, x):
         x = torch.relu(self.fc1(x))
         x = self.fc2(x)
