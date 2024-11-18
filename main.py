@@ -20,3 +20,5 @@ model = TestNet().to(device)
 input_tensor = torch.randn(1, 10).to(device)
 output = model(input_tensor)
 print(output)
+
+print("Hello World!")
