@@ -31,3 +31,5 @@ print("Hello World!")
 a = 5
 for i in range(a):
     print(i) 
+
+a = [1,2,3]
