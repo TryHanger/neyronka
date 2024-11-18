@@ -22,3 +22,6 @@ output = model(input_tensor)
 print(output)
 
 print("Hello World!")
+a = 5
+for i in range(a):
+    print(i) 
