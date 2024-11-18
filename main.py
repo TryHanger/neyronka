@@ -5,45 +5,6 @@ from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 import matplotlib.pyplot as plt
 
-<<<<<<< Updated upstream
-class SimpleNet(nn.Module):
-    def __init__(self):
-        super(SimpleNet, self).__init__()
-        self.fc1 = nn.Linear(1, 10)
-        self.fc2 = nn.Linear(10, 1)
-
-    def forward(self, x):
-        x = torch.relu(self.fc1(x))
-        x = self.fc2(x)
-        return x
-
-# Create the model
-model = SimpleNet()
-
-# Define a loss function and optimizer
-criterion = nn.MSELoss()
-optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
-
-# Dummy data for training (e.g., learning to count)
-inputs = torch.tensor([[i] for i in range(10)], dtype=torch.float32)
-targets = torch.tensor([[i] for i in range(10)], dtype=torch.float32)
-
-# Training loop
-for epoch in range(1000):
-    optimizer.zero_grad()
-    outputs = model(inputs)
-    loss = criterion(outputs, targets)
-    loss.backward()
-    optimizer.step()
-
-    if (epoch + 1) % 100 == 0:
-        print(f'Эпоха [{epoch + 1}/1000], Потеря: {loss.item():.4f}')
-
-# Test the model
-test_input = torch.tensor([[10]], dtype=torch.float32)
-predicted = model(test_input).item()
-print(f'Предсказанное значение для входа 10: {predicted}')
-=======
 # 1. Загрузка и подготовка данных
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
 
@@ -115,6 +76,8 @@ with torch.no_grad():
 
 print(f'Accuracy on test data: {100 * correct / total:.2f}%')
 
+torch.save(model.state_dict(), 'model.pth')
+
 # 6. Предсказания
 # Вывод одного примера
 sample_image, sample_label = test_dataset[0]
@@ -127,4 +90,3 @@ with torch.no_grad():
 plt.imshow(sample_image.squeeze(), cmap='gray')
 plt.title(f'Predicted: {predicted_label}')
 plt.show()
->>>>>>> Stashed changes
